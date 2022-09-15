@@ -18,7 +18,8 @@ const getContactById = async (contactId) => {
 
 const removeContact = async (contactId) => {
     const contact = await listContacts();
-    const index = contact.findIndex(item => item.id === contactId);
+    const normalId = String(contactId)
+    const index = contact.findIndex(item => item.id === normalId);
     if (index === -1) { 
         return null;
     };
@@ -26,7 +27,7 @@ const removeContact = async (contactId) => {
     return result;
 };
 
-const addContact = async (name, email, phone) =>  {
+const addContact = async ({name, email, phone}) =>  {
     const contacts = await listContacts();
     const newContact = {
         id: nanoid(),
