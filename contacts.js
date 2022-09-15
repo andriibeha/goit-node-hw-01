@@ -40,8 +40,6 @@ const addContact = async ({name, email, phone}) =>  {
     return newContact;
 };
 
-
-
 module.exports = {
     listContacts,
     getContactById,
